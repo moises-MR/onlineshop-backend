@@ -16,16 +16,19 @@ mongoose.connect(process.env.db_URL,
 // declarando servidor
 const app = express();
 
+// Habilitando carpeta de imagenes a publica
+app.use(express.static("uploads"));
+
 //Habilitar inputs
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 
-// whiteListe para cors
 
+// whiteListe para cors
 const whiteList = process.env.FRONTEND_URL
 
-// Definir un dominio para recibir notificaciones
+// Definir un dominio para recibir peticiones
 const corsOptions = {
 
     origin:(origin,callbak)=>{
@@ -44,17 +47,17 @@ const corsOptions = {
 
 
 // Habilitar cors
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Definiendo rutas
 app.use(router());
 
-// Habilitando carpeta de imagenes a publica
-app.use(express.static("uploads"));
+
  
 // iniciando servidor en el puerto 
 const port = process.env.PORT || 5600;
 const host = process.env.HOST || "0.0.0.0";
+
 app.listen(port,host, ()=>{
     console.log("El servidor esta funcionando");
 });

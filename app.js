@@ -8,7 +8,7 @@ const cors = require("cors");
 
 // Conectar mongodb
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb+srv://root:gONsptJbOxkOJq7h@cluster0.pib0q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+mongoose.connect(process.env.db_URL,
  { useNewUrlParser: true, useUnifiedTopology: true }).then(console.log("Conectado a la base de datos"));
 
 
@@ -47,7 +47,7 @@ const corsOptions = {
 
 
 // Habilitar cors
-app.use(cors());
+app.use(cors(corsOptions));
 
 // Definiendo rutas
 app.use(router());

@@ -6,7 +6,7 @@ module.exports = (req,res,next) =>{
     // autorizacion por el header
 
     const authHeader = req.get("Authorization");
-    console.log(authHeader);
+    // console.log(authHeader);
     if(!authHeader){
         const error = new Error("No estas autenticado, no hay token");
         error.statusCode = 401;

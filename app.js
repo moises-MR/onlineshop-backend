@@ -46,15 +46,15 @@ const corsOptions = {
 
 
 
-// Habilitar cors
+
 app.use(cors(corsOptions));
 
-// Definiendo rutas
+
 app.use(router());
 
 
  
-// iniciando servidor en el puerto 
+
 const port = process.env.PORT  || 5600;
 const host = process.env.HOST || "0.0.0.0";
 

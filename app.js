@@ -55,7 +55,7 @@ app.use(router());
 
  
 // iniciando servidor en el puerto 
-const port = process.env.PORT;
+const port = process.env.PORT  || 5600;
 const host = process.env.HOST || "0.0.0.0";
 
 app.listen(port,host, ()=>{
